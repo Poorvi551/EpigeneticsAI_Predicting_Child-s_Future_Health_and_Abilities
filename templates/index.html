@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Companion</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+    body {
+      background-color: #121212ff;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    nav{
+      background-color: #131342ff;
+      border: 1px solid rgba(3, 183, 57, 0.95);
+      box-shadow: 0 2px 4px rgba(3, 183, 57, 0.95);
+    }
+    .ai-text {
+    color: #2094a8f3;
+    font-weight: 500;
+    font-size: 1.25rem;
+    opacity: 0;
+    animation: fadeInText 1.2s ease-in-out forwards;
+   }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .chat-box {
+      max-width: 60rem;
+      height: 31rem;
+      margin: 3rem auto 1rem auto;
+      padding: 1.5rem;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+    .chat-area {
+      color: white;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      padding-right: 0.5rem;
+    }
+    .message {
+      display: flex;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.4s ease-in;
+    }
+    .bot {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .user {
+      justify-content: flex-end;
+    }
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      margin-right: 0.75rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .avatar.typing {
+      box-shadow: 0 0 10px #0d6efd;
+    }
+    .bubble {
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      max-width: 80%;
+      word-wrap: break-word;
+      position: relative;
+    }
+    .user .bubble {
+      background-color: #203453;
+      color: #fff;
+      text-align: right;
+    }
+    .bot .bubble {
+      background-color: #343a40;
+      color: #f8f9fa;
+      text-align: left;
+    }
+    .voice-indicator {
+      display: inline-block;
+      margin-left: 0.5rem;
+      color: #0d6efd;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .input-wrapper {
+      max-width: 60rem;
+      height: 0.2rem;
+      margin: 0 auto 3rem auto;
+    }
+    .input-group input {
+      background-color: #1e1e1e;
+      color: #fff;
+      height: 2.5rem;
+      border: 1px solid #e043fbff;
+    }
+    .input-group input:focus {
+      box-shadow: 0 0 5px #e043fbff;
+    }
+    .input-group .btn {
+      height: 2.5rem;
+      width: 4rem;
+      position:relative;
+      border: 1px solid #e043fbff;
+      box-shadow: 0 0 5px #e043fbff;
+    }
+    
+    /* Settings offcanvas styling */
+    .settings-item {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s ease;
+    }
+    .settings-item:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .settings-item:last-child {
+      border-bottom: none;
+    }
+    /* Dark theme dropdown styling */
+    .dropdown-menu {
+      border: 1px solid #0d6efd;
+    }
+    .dropdown-menu-dark {
+      background-color: #212529 !important;
+      border: 1px solid #0d6efd;
+    }
+    
+    .dropdown-menu-dark .dropdown-item {
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-menu-dark .dropdown-item:hover,
+    .dropdown-menu-dark .dropdown-item:focus {
+    background-color: #212529 !important;
+      color: #fff;
+      outline: 2px solid #0d6efd;
+      outline-offset: -2px;
+    }
+    
+    .dropdown-menu-dark .dropdown-item:active {
+      background-color: #212529 !important;
+      color: #fff;
+    }
+
+    /* Increase backdrop opacity when modal (Login) is shown */
+    .modal-backdrop.show {
+      opacity: 0.85 !important;
+    }
+    
+    /* Toast fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-dark">
+<!-- Navbar -->
+ <nav class="navbar navbar-expand-lg bg-dark mb-2">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center text-white" href="#">
+      <img src="{{ url_for('static', filename='icons8-message-bot-64 (1).png') }}" alt="User Icon" class="me-2">
+      <span class="ai-text">AI Companion</span>
+    </a>
+    <!-- Right-aligned Buttons -->
+    <div class="ms-auto">
+      <button type="button" id="authButton" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#loginModal">
+        Login
+      </button>
+      <button type="button" class="btn btn-outline-info" data-bs-toggle="offcanvas" data-bs-target="#Predictions" aria-controls="offcanvasExample">Predictions</button>
+      <button type="button" class="btn btn-outline-info" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="settingsOffcanvas">Settings</button>
+    </div>
+</nav>
+
+<<!-- Settings Offcanvas (Left Side) -->
+<div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="settingsOffcanvas" aria-labelledby="settingsOffcanvasLabel">
+  <div class="offcanvas-header border-bottom border-secondary">
+    <h5 class="offcanvas-title text-white" id="settingsOffcanvasLabel">⚙️ Settings</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    
+    <!-- Camera Settings -->
+    <div class="settings-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h6 class="mb-1 text-white">📹 Camera Access</h6>
+          <small class="text-white">Enable camera for emotion detection</small>
+        </div>
+        <button id="cameraToggle" class="btn btn-sm btn-outline-success">
+          ON
+        </button>
+      </div>
+      <div id="currentEmotionDisplay" class="mt-2" style="display:none;">
+        <div class="py-2 mb-0 bg-dark border border-success rounded text-center" style="border-width: 2px !important;">
+          <small class="text-white">Current Emotion: <strong><span id="currentEmotionText">Detecting...</span></strong></small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Settings -->
+    <div class="settings-item">
+      <div>
+        <h6 class="mb-1 text-white">💬 Response Mode</h6>
+        <small class="text-white">Choose how bot responds to you</small>
+      </div>
+      <div class="mt-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="responseMode" id="textOnly" value="text">
+          <label class="form-check-label text-white" for="textOnly">
+            📝 Text Only
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="responseMode" id="voiceOnly" value="voice">
+          <label class="form-check-label text-white" for="voiceOnly">
+            🔊 Voice Only
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="responseMode" id="textAndVoice" value="both" checked>
+          <label class="form-check-label text-white" for="textAndVoice">
+            📝🔊 Text + Voice
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice Settings -->
+    <div class="settings-item">
+      <div>
+        <h6 class="mb-1 text-white">🎙️ Voice Settings</h6>
+        <small class="text-white">Adjust voice output preferences</small>
+      </div>
+      <div class="mt-3">
+        <label for="voiceSpeed" class="form-label text-white">Voice Speed</label>
+        <input type="range" class="form-range" min="0.5" max="2" step="0.1" value="1" id="voiceSpeed">
+        <small class="text-white">Speed: <span id="speedValue">1.0</span>x</small>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Predictions Offcanvas -->
+<div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="Predictions" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Disease Predictions</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body text-white">
+    <div>Select a disease prediction model:</div>
+
+    <div class="dropdown mt-3">
+      <button class="btn btn-outline-success dropdown-toggle" type="button" id="modelDropdown" data-bs-toggle="dropdown">
+        Select Model
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark bg-dark dropdown-outline-success">
+        <li><a class="dropdown-item text-white" href="#" onclick="redirectToModel('http://192.168.63.62:8501')">Autism Detection</a></li>
+        <li><a class="dropdown-item text-white" href="#" onclick="redirectToModel('http://192.168.63.62:8502')">Heart Disease Detection</a></li>
+        <li><a class="dropdown-item text-white" href="#" onclick="redirectToModel('http://192.168.63.62:8503')">Obesity Prediction</a></li>
+        <li><a class="dropdown-item text-white" href="#" onclick="redirectToModel('http://192.168.63.62:8504')">Stress Prediction</a></li>
+        <li><a class="dropdown-item text-white" href="#" onclick="redirectToModel('http://192.168.63.62:8505')">Anxiety Detection</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function redirectToModel(url) {
+    window.open(url, '_blank');
+  }
+</script>
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-info">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card text-bg-dark border-info mx-auto" style="max-width: 36rem;">
+          <div class="card-header text-white"><h1>USER LOGIN</h1></div>
+          <div class="card-body">
+            <h5 class="card-title text-white">Welcome Back!</h5>
+            <p class="card-text text-white">Please enter your credentials to log in.</p>
+            <form action="/login" id="loginForm" method="POST" class="container">
+              <div class="mb-3">
+                <label for="email" class="form-label text-white">Email address</label>
+                <input type="email" class="form-control bg-dark text-white" id="email" name="email" required autocomplete="email">
+                <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label text-white">Password</label>
+                <input type="password" class="form-control bg-dark text-white" id="password" name="password" required autocomplete="current-password">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                <label class="form-check-label text-white" for="remember">Remember me</label>
+              </div>
+              <button type="submit" class="btn btn-outline-primary my-3 mx-3">Login</button>
+              <a href="/register" class="btn btn-outline-success my-3 mx-3">Register</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast fade-in border border-primary bg-dark text-white" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-dark text-white border-bottom border-primary">
+      <strong class="me-auto">Notification</strong>
+      <small>Just now</small>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" id="toastBody">
+      You have been logged out successfully.
+    </div>
+  </div>
+</div>
+
+<!-- Logout Sound -->
+<audio id="logoutSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e2b6c3d.mp3?filename=notification-112509.mp3" preload="auto"></audio>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Accept": "application/json"
+        },
+        body: new URLSearchParams({ email, password })
+      });
+
+      // Try to parse as JSON first
+      let data;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        // Fallback to redirect handling for non-JSON responses
+        if (response.redirected) {
+          const navBtn = document.getElementById("authButton");
+          navBtn.textContent = "Logout";
+          navBtn.classList.remove("btn-outline-info");
+          navBtn.classList.add("btn-outline-danger");
+          navBtn.removeAttribute("data-bs-toggle");
+          navBtn.removeAttribute("data-bs-target");
+
+          const loginModal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
+          loginModal.hide();
+
+          navBtn.onclick = function () {
+            // Redirect to logout page
+            window.location.href = "/logout";
+          };
+          return;
+        } else {
+          const toastElement = document.getElementById('liveToast');
+          const toastBody = document.getElementById('toastBody');
+          const toastHeader = toastElement.querySelector('strong');
+          toastHeader.textContent = "Login Failed";
+          toastBody.textContent = "Invalid credentials. Please try again.";
+          const toast = new bootstrap.Toast(toastElement, { autohide: true, delay: 2000 });
+          toast.show();
+          return;
+        }
+      }
+
+      // Handle JSON response
+      if (data.success) {
+        // Login successful
+        const navBtn = document.getElementById("authButton");
+        navBtn.textContent = "Logout";
+        navBtn.classList.remove("btn-outline-info");
+        navBtn.classList.add("btn-outline-danger");
+        navBtn.removeAttribute("data-bs-toggle");
+        navBtn.removeAttribute("data-bs-target");
+
+        const loginModal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
+        loginModal.hide();
+
+        // Show success toast notification
+        const toastElement = document.getElementById('liveToast');
+        const toastBody = document.getElementById('toastBody');
+        const toastHeader = toastElement.querySelector('strong');
+        toastHeader.textContent = "Login Successful";
+        toastBody.textContent = data.message || "Welcome back! You have been logged in successfully.";
+        const toast = new bootstrap.Toast(toastElement, { autohide: true, delay: 2000 });
+        toast.show();
+
+        navBtn.onclick = function () {
+          // Redirect to logout page
+          window.location.href = "/logout";
+        };
+      } else {
+        // Login failed
+        if (data.redirect === "/register") {
+          // Email not registered - redirect to register page
+          const toastElement = document.getElementById('liveToast');
+          const toastBody = document.getElementById('toastBody');
+          const toastHeader = toastElement.querySelector('strong');
+          toastHeader.textContent = "Account Not Found";
+          toastBody.textContent = data.message || "Email not registered. Redirecting to registration page...";
+          const toast = new bootstrap.Toast(toastElement, { autohide: true, delay: 2000 });
+          toast.show();
+          
+          // Redirect after a short delay
+          setTimeout(() => {
+            window.location.href = "/register";
+          }, 1500);
+        } else {
+          // Other error (wrong password, etc.)
+          const toastElement = document.getElementById('liveToast');
+          const toastBody = document.getElementById('toastBody');
+          const toastHeader = toastElement.querySelector('strong');
+          toastHeader.textContent = "Login Failed";
+          toastBody.textContent = data.message || "Invalid credentials. Please try again.";
+          const toast = new bootstrap.Toast(toastElement, { autohide: true, delay: 2000 });
+          toast.show();
+        }
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      const toastElement = document.getElementById('liveToast');
+      const toastBody = document.getElementById('toastBody');
+      const toastHeader = toastElement.querySelector('strong');
+      toastHeader.textContent = "Error";
+      toastBody.textContent = "An error occurred. Please try again.";
+      const toast = new bootstrap.Toast(toastElement, { autohide: true, delay: 2000 });
+      toast.show();
+    }
+  });
+</script>
+
+  <!-- Hidden video for emotion detection (not visible to user) -->
+  <video id="emotionVideo" width="320" height="240" autoplay style="display:none;"></video>
+  <canvas id="emotionCanvas" style="display:none;"></canvas>
+
+  <div class="chat-box">
+    <h4 class="text-center text-white mb-4" id="chatGreeting">Initializing... Please wait 😊</h4>
+    <div id="chatArea" class="chat-area"></div>
+  </div>
+
+  <!--  Input field placed below chat box -->
+  <div class="input-wrapper">
+    <form id="chatForm">
+      <div class="input-group">
+        <input type="text" id="userInput" width="60rem" class="form-control bg-dark text-white" placeholder="Type your question..." required autofocus />
+        <button class="btn btn-dark btn-outline-secondary" type="submit"><img src="{{ url_for('static', filename='icons8-send-64.png') }}" alt="User Icon" class="me-2" style="width: 2rem; height: 2rem;"></button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+  const chatForm = document.getElementById("chatForm");
+  const userInput = document.getElementById("userInput");
+  const chatArea = document.getElementById("chatArea");
+  const chatGreeting = document.getElementById("chatGreeting");
+  const cameraToggle = document.getElementById("cameraToggle");
+  const textOnlyRadio = document.getElementById("textOnly");
+  const voiceOnlyRadio = document.getElementById("voiceOnly");
+  const textAndVoiceRadio = document.getElementById("textAndVoice");
+  const voiceSpeedSlider = document.getElementById("voiceSpeed");
+  const speedValueDisplay = document.getElementById("speedValue");
+  
+  let voiceEnabled = true;
+  let responseMode = 'both'; // 'text', 'voice', 'both'
+  let voiceSpeed = 1.0;
+  let currentAudio = null;
+  let stream = null;
+  let currentEmotion = 'neutral'; // Default emotion
+  let cameraEnabled = true;
+  let detectionInterval = null;
+  let emotionDetected = false;
+  let initialDetectionComplete = false;
+
+  // Disable chat input until emotion is detected
+  userInput.disabled = true;
+  userInput.placeholder = "Detecting your emotion... Please wait";
+  chatForm.style.opacity = "0.5";
+
+  // Start emotion detection immediately on page load
+  window.addEventListener('load', () => {
+    console.log('Page loaded, starting initial emotion detection...');
+    startInitialEmotionDetection();
+  });
+
+  // Voice speed slider
+  voiceSpeedSlider.addEventListener('input', (e) => {
+    voiceSpeed = parseFloat(e.target.value);
+    speedValueDisplay.textContent = voiceSpeed.toFixed(1);
+  });
+
+  // Response mode radio buttons
+  document.querySelectorAll('input[name="responseMode"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      responseMode = e.target.value;
+      voiceEnabled = (responseMode === 'voice' || responseMode === 'both');
+      
+      if (!voiceEnabled && currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+        removeVoiceIndicators();
+      }
+    });
+  });
+
+  // Camera toggle functionality
+  cameraToggle.addEventListener("click", () => {
+    cameraEnabled = !cameraEnabled;
+    cameraToggle.textContent = cameraEnabled ? "ON" : "OFF";
+    cameraToggle.className = cameraEnabled ? "btn btn-sm btn-outline-success" : "btn btn-sm btn-outline-secondary";
+    
+    if (!cameraEnabled) {
+      stopCamera();
+      document.getElementById('currentEmotionDisplay').style.display = 'none';
+    } else if (initialDetectionComplete) {
+      // If camera is turned back on after initial detection, restart detection
+      startContinuousDetection();
+    }
+  });
+
+  const video = document.getElementById('emotionVideo');
+  const canvas = document.getElementById('emotionCanvas');
+
+  async function startInitialEmotionDetection() {
+    if (!cameraEnabled) {
+      enableChatWithoutCamera();
+      return;
+    }
+    
+    console.log('Starting initial emotion detection...');
+    chatGreeting.textContent = 'Looking at you... Please smile! 😊';
+    
+    try {
+      // Request camera access
+      stream = await navigator.mediaDevices.getUserMedia({ 
+        video: { width: 320, height: 240 } 
+      });
+      video.srcObject = stream;
+      
+      console.log('Camera stream started');
+      
+      // Show emotion detection status in settings
+      document.getElementById('currentEmotionDisplay').style.display = 'block';
+      document.getElementById('currentEmotionText').textContent = 'Detecting...';
+      
+      // Wait for video to be ready
+      video.addEventListener('loadedmetadata', async () => {
+        console.log('Video metadata loaded');
+        await video.play();
+        
+        // Wait 2 seconds for camera to stabilize
+        setTimeout(async () => {
+          await detectInitialEmotion();
+        }, 2000);
+      });
+      
+    } catch (error) {
+      // Camera access denied or not available
+      console.log('Camera access denied:', error);
+      enableChatWithoutCamera();
+    }
+  }
+
+  async function detectInitialEmotion() {
+    console.log('Detecting initial emotion...');
+    chatGreeting.textContent = 'Analyzing your emotion... 🔍';
+    
+    try {
+      // Capture frame from video
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth || 320;
+      canvas.height = video.videoHeight || 240;
+      
+      if (canvas.width === 0 || canvas.height === 0) {
+        console.log('Video not ready, trying again...');
+        setTimeout(detectInitialEmotion, 1000);
+        return;
+      }
+      
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      // Convert to base64
+      const imageData = canvas.toDataURL('image/jpeg', 0.8);
+      
+      console.log('Sending image to server for initial emotion detection...');
+      
+      // Send to server
+      const response = await fetch('/detect-emotion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: imageData })
+      });
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        console.log('Emotion detection error:', data.error);
+        enableChatWithoutCamera();
+        return;
+      }
+      
+      console.log('Initial emotion detected:', data.emotion);
+      
+      // Update current emotion
+      currentEmotion = data.emotion;
+      emotionDetected = true;
+      initialDetectionComplete = true;
+      
+      // Update emotion display
+      document.getElementById('currentEmotionText').textContent = data.emotion.toUpperCase();
+      
+      // Show personalized greeting based on emotion
+      const emotionGreetings = {
+        happy: "I can see you're happy! 😊 That's wonderful!",
+        sad: "I notice you seem a bit down. I'm here to help! 🤗",
+        angry: "I sense you might be upset. Let's talk about it. 😌",
+        neutral: "Hello there! How can I help you today? 😊",
+        surprised: "You look surprised! What's on your mind? 😮",
+        fear: "I'm here for you. Everything will be okay. 💙",
+        disgust: "I'm here to listen and help. What's bothering you? 🤔"
+      };
+      
+      const greeting = emotionGreetings[data.emotion] || emotionGreetings['neutral'];
+      chatGreeting.textContent = greeting + " 💬 How can I assist you today?";
+      
+      // Speak the greeting if voice is enabled
+      if (voiceEnabled) {
+        speakText(greeting, null);
+      }
+      
+      // Enable chat
+      userInput.disabled = false;
+      userInput.placeholder = "Type your question...";
+      chatForm.style.opacity = "1";
+      userInput.focus();
+      
+      // Start continuous detection in background
+      startContinuousDetection();
+      
+    } catch (error) {
+      console.log('Error in initial emotion detection:', error);
+      enableChatWithoutCamera();
+    }
+  }
+
+  function enableChatWithoutCamera() {
+    console.log('Enabling chat without camera...');
+    cameraEnabled = false;
+    cameraToggle.textContent = "OFF";
+    cameraToggle.className = "btn btn-sm btn-outline-secondary";
+    
+    chatGreeting.textContent = "Hey!! Kiddo. I Hope you are doing well.. 💬 How can I assist you today?";
+    
+    userInput.disabled = false;
+    userInput.placeholder = "Type your question...";
+    chatForm.style.opacity = "1";
+    userInput.focus();
+    
+    initialDetectionComplete = true;
+  }
+
+  function startContinuousDetection() {
+    if (!cameraEnabled || detectionInterval) return;
+    
+    console.log('Starting continuous emotion detection...');
+    
+    // Detect emotion every 5 seconds in background
+    detectionInterval = setInterval(detectEmotionFromVideo, 5000);
+  }
+
+  async function detectEmotionFromVideo() {
+    if (!cameraEnabled || !stream) {
+      stopCamera();
+      return;
+    }
+    
+    console.log('Detecting emotion from video...');
+    
+    try {
+      // Capture frame from video
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth || 320;
+      canvas.height = video.videoHeight || 240;
+      
+      if (canvas.width === 0 || canvas.height === 0) {
+        console.log('Video not ready yet');
+        return;
+      }
+      
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      // Convert to base64
+      const imageData = canvas.toDataURL('image/jpeg', 0.8);
+      
+      // Send to server
+      const response = await fetch('/detect-emotion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: imageData })
+      });
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        console.log('Emotion detection error:', data.error);
+        return;
+      }
+      
+      console.log('Emotion detected:', data.emotion);
+      
+      // Update current emotion silently
+      currentEmotion = data.emotion;
+      
+      // Update emotion display in settings only
+      document.getElementById('currentEmotionText').textContent = data.emotion.toUpperCase();
+      
+    } catch (error) {
+      console.log('Error in emotion detection:', error);
+    }
+  }
+
+  function stopCamera() {
+    console.log('Stopping camera...');
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      stream = null;
+    }
+    if (detectionInterval) {
+      clearInterval(detectionInterval);
+      detectionInterval = null;
+    }
+  }
+
+  // Text-to-speech function
+  async function speakText(text, messageElement) {
+    if (!voiceEnabled || responseMode === 'text') return;
+
+    try {
+      if (messageElement) {
+        const voiceIndicator = document.createElement('span');
+        voiceIndicator.className = 'voice-indicator';
+        voiceIndicator.innerHTML = '🔊';
+        messageElement.querySelector('.bubble').appendChild(voiceIndicator);
+      }
+
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+      }
+
+      const response = await fetch('/text-to-speech', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+
+      if (!response.ok) throw new Error('TTS failed');
+
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      
+      currentAudio = new Audio(audioUrl);
+      currentAudio.playbackRate = voiceSpeed;
+      
+      currentAudio.onended = () => {
+        URL.revokeObjectURL(audioUrl);
+        if (messageElement) {
+          const indicator = messageElement.querySelector('.voice-indicator');
+          if (indicator) indicator.remove();
+        }
+        currentAudio = null;
+      };
+
+      currentAudio.onerror = () => {
+        if (messageElement) removeVoiceIndicators();
+        currentAudio = null;
+      };
+
+      await currentAudio.play();
+
+    } catch (error) {
+      console.error('Voice error:', error);
+      removeVoiceIndicators();
+    }
+  }
+
+  function removeVoiceIndicators() {
+    document.querySelectorAll('.voice-indicator').forEach(el => el.remove());
+  }
+
+  chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    console.log('User message:', message);
+
+    appendMessage("You", message, "user");
+    userInput.value = "";
+
+    const typing = document.createElement("div");
+    typing.className = "message bot";
+    typing.innerHTML = `
+      <img src="/static/icons8-Chatbot-94.png" alt="bot" class="avatar me-2">
+      <div class="bubble"><em>Bot is typing...</em></div>
+    `;
+    chatArea.appendChild(typing);
+    chatArea.scrollTop = chatArea.scrollHeight;
+
+    try {
+      console.log('Sending message to server with emotion:', currentEmotion);
+      
+      const response = await fetch("/get_response", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          message: message,
+          emotion: currentEmotion 
+        })
+      });
+
+      const data = await response.json();
+      const reply = data.reply || "Sorry, I couldn't find an answer.";
+
+      console.log('Bot reply:', reply);
+
+      typing.remove();
+      
+      // Handle different response modes
+      if (responseMode === 'voice') {
+        // Voice only - don't show text bubble, just speak
+        speakText(reply, null);
+        const voiceMsg = document.createElement("div");
+        voiceMsg.className = "message bot";
+        voiceMsg.innerHTML = `
+          <img src="/static/icons8-Chatbot-94.png" alt="bot" class="avatar me-2">
+          <div class="bubble"><em>🔊 Playing voice response...</em></div>
+        `;
+        chatArea.appendChild(voiceMsg);
+        chatArea.scrollTop = chatArea.scrollHeight;
+      } else if (responseMode === 'text') {
+        // Text only - show text bubble, no voice
+        appendMessage("Bot", reply, "bot", "/static/icons8-Chatbot-94.png");
+      } else {
+        // Both - show text and speak
+        const botMessage = appendMessage("Bot", reply, "bot", "/static/icons8-Chatbot-94.png");
+        if (voiceEnabled) {
+          speakText(reply, botMessage);
+        }
+      }
+      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      typing.remove();
+      appendMessage("Bot", "Something went wrong.", "bot", "/static/icons8-Chatbot-94.png");
+    }
+  });
+
+  function appendMessage(sender, text, role, avatarPath = null) {
+    const msg = document.createElement("div");
+    msg.className = `message ${role}`;
+    msg.innerHTML = avatarPath
+      ? `<img src="${avatarPath}" alt="${sender}" class="avatar me-2" /><div class="bubble"><strong>${sender}:</strong> ${text}</div>`
+      : `<div class="bubble"><strong>${sender}:</strong> ${text}</div>`;
+    chatArea.appendChild(msg);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return msg;
+  }
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    stopCamera();
+  });
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

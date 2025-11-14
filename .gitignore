@@ -1,0 +1,48 @@
+cd "C:\Users\poorvinayak\OneDrive\Documents\MJ project"
+notepad .gitignore
+```
+
+**Paste this content:**
+```
+# Virtual environments
+**/venv/
+**/env/
+**/.venv/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.Python
+
+# Large data files - we'll host these on Hugging Face
+**/*.xlsx
+**/*.csv
+**/*.pkl
+**/*.h5
+**/*.joblib
+**/*.model
+
+# Environment variables
+**/.env
+**/.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Distribution / packagings
+dist/
+build/
+*.egg-info/

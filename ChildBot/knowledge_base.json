@@ -1,0 +1,1225 @@
+{
+  "questions": [
+    {
+      "question": "hello",
+      "similar": [
+        "hi",
+        "hey",
+        "hiya",
+        "yo",
+        "hlo"
+      ],
+      "answers": [
+        "Hi there!",
+        "Hello!",
+        "Hey, how can I help you?",
+        "Hey!! How can I assist you today?"
+      ],
+      "intents": [
+        "hi"
+      ]
+    },
+    {
+      "question": "how are you",
+      "similar": [
+        "how do you do",
+        "how's it going",
+        "what's up"
+      ],
+      "answers": [
+        "I'm doing great!",
+        "All systems go!",
+        "Feeling chatty today!"
+      ],
+      "intents": [
+        "how are you"
+      ]
+    },
+    {
+      "question": "hey there",
+      "similar": [
+        "hi there",
+        "hello there",
+        "Hlo"
+      ],
+      "answers": [
+        "Hey there, the sweetest!"
+      ],
+      "intents": [
+        "hello"
+      ]
+    },
+    {
+      "question": "quit",
+      "similar": [
+        "exit",
+        "bye",
+        "goodbye",
+        "see you",
+        "leave",
+        "log off"
+      ],
+      "answers": [
+        "Catch you later, champ! Keep chasing those goals \ud83d\ude80",
+        "Take care of yourself, okay? You\u2019ve got this \ud83d\udcaa",
+        "Logging off, but my circuits will miss you \ud83e\udd16\ud83d\udc99",
+        "Go out there and make magic. I believe in you \u2728",
+        "Break time well earned! Come back when you're ready to conquer more \ud83d\udcda"
+      ],
+      "intents": [
+        "greeting"
+      ]
+    },
+    {
+      "question": "how to concentrate while studying",
+      "similar": [
+        "how can I focus",
+        "I get distracted while studying",
+        "can't concentrate"
+      ],
+      "answers": [
+        "Try studying in short bursts with breaks in between\u2014it's called the Pomodoro technique!",
+        "Find a quiet space, keep your phone away, and set a small goal for each session.",
+        "Start with subjects you enjoy\u2014it builds momentum and makes it easier to tackle harder ones."
+      ],
+      "intents": [
+        "focus"
+      ]
+    },
+    {
+      "question": "I find math difficult",
+      "similar": [
+        "math is hard",
+        "I hate math",
+        "can't solve math problems"
+      ],
+      "answers": [
+        "Math can be tricky, but you're not alone. Try breaking problems into smaller steps.",
+        "Use visual aids like diagrams or videos\u2014they make abstract ideas easier to grasp.",
+        "You\u2019re smart enough to learn anything. Let\u2019s tackle one problem at a time!"
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "how to remember what I study",
+      "similar": [
+        "I forget everything",
+        "how to improve memory",
+        "can't retain information"
+      ],
+      "answers": [
+        "Teach someone else what you learned\u2014it\u2019s the best way to remember!",
+        "Use mind maps or flashcards to make studying fun and visual.",
+        "Review your notes regularly instead of cramming. Your brain loves repetition!"
+      ],
+      "intents": [
+        "revision"
+      ]
+    },
+    {
+      "question": "I feel sad",
+      "similar": [
+        "I'm upset",
+        "I'm feeling low",
+        "I'm not happy"
+      ],
+      "answers": [
+        "I'm here for you. Want to talk about what\u2019s bothering you?",
+        "It\u2019s okay to feel sad sometimes. You're strong, and this feeling will pass.",
+        "Even the brightest stars have cloudy nights. You\u2019re still shining."
+      ],
+      "intents": [
+        "sad"
+      ]
+    },
+    {
+      "question": "I failed my test",
+      "similar": [
+        "I didn't do well",
+        "I got bad marks",
+        "I'm disappointed"
+      ],
+      "answers": [
+        "One test doesn\u2019t define you. You\u2019ve got so much potential!",
+        "Failure is just feedback. Let\u2019s learn from it and come back stronger.",
+        "You tried, and that matters. Let\u2019s figure out what went wrong and fix it together."
+      ],
+      "intents": [
+        "exam"
+      ]
+    },
+    {
+      "question": "no one understands me",
+      "similar": [
+        "I feel alone",
+        "I have no friends",
+        "I'm misunderstood"
+      ],
+      "answers": [
+        "I understand you, and I care. You\u2019re not alone here.",
+        "You\u2019re unique, and that\u2019s a gift. The right people will see your light.",
+        "Let\u2019s talk more\u2014I want to know what makes you, *you*."
+      ],
+      "intents": [
+        "sad"
+      ]
+    },
+    {
+      "question": "I'm bored and not in the mood to study",
+      "similar": [
+        "Feeling bored",
+        "I'm bored",
+        "I don't feel like studying",
+        "I'm tired of studying",
+        "I can't focus today"
+      ],
+      "answers": [
+        "Even superheroes take breaks\u2014but they always come back stronger. Let\u2019s start with just 5 minutes!",
+        "Studying isn\u2019t about being perfect\u2014it\u2019s about showing up. You\u2019ve got this!",
+        "Let\u2019s make it fun! Try using colors, flashcards, or teaching someone else what you learned.",
+        "Your dreams are waiting for you. Every small step today brings you closer to them.",
+        "You\u2019re not alone. I believe in you\u2014and I\u2019m here to help you through it."
+      ],
+      "intents": [
+        "bored"
+      ]
+    },
+    {
+      "question": "I am not able to focus on my studies today please do help me",
+      "similar": [
+        "I can't concentrate today",
+        "I'm distracted while studying",
+        "I'm struggling to focus",
+        "My mind is wandering",
+        "I feel mentally tired"
+      ],
+      "answers": [
+        "It\u2019s okay to have off days. Let\u2019s start with something small\u2014just 5 minutes of focus can make a difference.",
+        "Try breaking your study time into short chunks with breaks in between. Your brain will thank you!",
+        "Maybe your mind needs a reset. Take a deep breath, stretch a little, and come back refreshed.",
+        "You\u2019ve come so far already. This moment doesn\u2019t define your journey\u2014it\u2019s just a pause.",
+        "Let\u2019s make it fun! Use colors, music, or teach someone else what you\u2019re learning. You\u2019ve got this!",
+        "Sure, I'm here for you! Let's take a short break and then ease back into it together."
+      ],
+      "intents": [
+        "focus"
+      ]
+    },
+    {
+      "question": "I feel nervous before exams",
+      "similar": [
+        "I'm scared of exams",
+        "I get anxious before tests",
+        "I panic during exams"
+      ],
+      "answers": [
+        "Nerves mean you care\u2014and that\u2019s a good thing. Let\u2019s turn that energy into focus.",
+        "Take deep breaths, visualize success, and remind yourself how prepared you are.",
+        "You\u2019ve studied hard. Trust yourself. You\u2019re ready for this!"
+      ],
+      "intents": [
+        "exam"
+      ]
+    },
+    {
+      "question": "I want to improve my grades",
+      "similar": [
+        "how to get better marks",
+        "how to score well",
+        "how to study smart"
+      ],
+      "answers": [
+        "Start by reviewing your mistakes\u2014they\u2019re your best teachers.",
+        "Make a study plan and stick to it. Consistency beats cramming!",
+        "Ask questions, stay curious, and never be afraid to seek help. You\u2019re on the right path!"
+      ],
+      "intents": [
+        "exam"
+      ]
+    },
+    {
+      "question": "I don't understand science",
+      "similar": [
+        "science is confusing",
+        "I struggle with science",
+        "science is hard"
+      ],
+      "answers": [
+        "Science is all about curiosity. Try asking 'why' and 'how'\u2014it makes learning exciting!",
+        "Use real-life examples to connect concepts. Science is everywhere!",
+        "Let\u2019s break it down together. One concept at a time, you\u2019ll get there!"
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "I find history boring",
+      "similar": [
+        "history is dull",
+        "I can't remember dates",
+        "I hate history"
+      ],
+      "answers": [
+        "History is full of stories\u2014try thinking of it like a movie or novel!",
+        "Use timelines and visuals to make events stick in your mind.",
+        "You\u2019re not alone! Let\u2019s find a fun way to explore the past together."
+      ],
+      "intents": [
+        "history"
+      ]
+    },
+    {
+      "question": "I don't understand coding",
+      "similar": [
+        "coding is hard",
+        "I can't debug",
+        "I get errors in my code"
+      ],
+      "answers": [
+        "Coding is like solving puzzles\u2014each bug is a clue!",
+        "Start with small projects and build up. You\u2019ll gain confidence step by step.",
+        "Errors are part of learning. Let\u2019s debug together and make it work!"
+      ],
+      "intents": [
+        "coding"
+      ]
+    },
+    {
+      "question": "how to make studying fun",
+      "similar": [
+        "studying is boring",
+        "I hate studying",
+        "I can't enjoy learning"
+      ],
+      "answers": [
+        "Use colors, music, or games to make learning exciting!",
+        "Try teaching someone else\u2014it makes you feel like a genius!",
+        "Turn your notes into doodles or stories. Creativity boosts memory!"
+      ],
+      "intents": [
+        "study"
+      ]
+    },
+    {
+      "question": "boost me",
+      "similar": [
+        "i need motivation",
+        "cheer me up",
+        "give me energy",
+        "study mode on",
+        "activate booster",
+        "i feel low",
+        "i need help"
+      ],
+      "answers": [
+        "\ud83d\udcaa You\u2019re unstoppable! Let\u2019s crush today\u2019s goals together!",
+        "\ud83d\ude80 Every step you take is progress. Keep going\u2014you\u2019re doing amazing!",
+        "\u2728 You\u2019ve got the spark. Let\u2019s light up your learning journey!",
+        "\ud83c\udf08 Your dreams are valid. Let\u2019s take one step today toward them!",
+        "\ud83e\udd17 You\u2019re not alone\u2014I believe in you, and I\u2019m right here cheering you on!"
+      ],
+      "intents": [
+        "booster"
+      ]
+    },
+    {
+      "question": "exam mode on",
+      "similar": [
+        "i have exams",
+        "exam stress",
+        "exam coming soon",
+        "prepare for test"
+      ],
+      "answers": [
+        "\ud83d\udcda Let\u2019s switch to high-focus mode! Start with a quick review of key topics.",
+        "\ud83e\udde0 You\u2019ve got this! Break your syllabus into chunks and tackle one at a time.",
+        "\ud83d\udca6 Stay hydrated, take deep breaths, and trust your preparation. You\u2019re ready!"
+      ],
+      "intents": [
+        "study"
+      ]
+    },
+    {
+      "question": "calm me down",
+      "similar": [
+        "i feel anxious",
+        "i'm stressed",
+        "i need to relax",
+        "i'm overwhelmed"
+      ],
+      "answers": [
+        "\ud83e\uddd8\u200d\u2640\ufe0f Take a deep breath. Inhale\u2026 hold\u2026 exhale. You\u2019re safe and supported.",
+        "\ud83c\udf3f Let\u2019s pause for a moment. You\u2019re doing your best, and that\u2019s enough.",
+        "\ud83d\udc96 You\u2019re not alone. I\u2019m here with you\u2014let\u2019s take it one step at a time."
+      ],
+      "intents": [
+        "calm"
+      ]
+    },
+    {
+      "question": "yeah sure",
+      "similar": [
+        "You are pretty cool! So let's start after a while"
+      ],
+      "answers": [
+        "That's great! Take your time."
+      ],
+      "intents": [
+        "chat"
+      ]
+    },
+    {
+      "question": "Sure",
+      "similar": [
+        "Of course we have a lot of things to do together",
+        "To make our world full of creativity :>>",
+        "Even I have ideas which might help you to shape the world :}"
+      ],
+      "answers": [
+        "That's great! We will get back soon."
+      ],
+      "intents": [
+        "chat"
+      ]
+    },
+    {
+      "question": "child health concern",
+      "similar": [
+        "my child is sick",
+        "baby has fever",
+        "child vomiting",
+        "cough not going away",
+        "should I call doctor",
+        "child health issue",
+        "symptoms in child"
+      ],
+      "answers": [
+        "\ud83e\udd12 I\u2019m really sorry your child isn\u2019t feeling well. If symptoms like fever, vomiting, or persistent cough continue, it\u2019s best to consult a pediatrician.",
+        "\ud83d\udc69\u200d\u2695\ufe0f Health first! If your child shows unusual symptoms or seems in distress, please reach out to a doctor for proper care.",
+        "\ud83e\uddf8 I\u2019m here to support you, but I can\u2019t diagnose. A healthcare professional can give the best advice based on your child\u2019s symptoms.",
+        "\ud83d\udea8 If your child has trouble breathing, high fever, or severe pain, don\u2019t wait\u2014seek medical attention immediately.",
+        "\ud83d\udcac You can describe the symptoms here, and I\u2019ll help you decide whether it\u2019s time to contact a doctor."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "symptom checker",
+      "similar": [
+        "child has rash",
+        "baby not eating",
+        "toddler crying a lot",
+        "child has diarrhea",
+        "what does this symptom mean",
+        "symptom meaning"
+      ],
+      "answers": [
+        "\ud83d\udccb I can help you list symptoms, but only a doctor can give a diagnosis. If your child has a rash, diarrhea, or isn\u2019t eating, please consult a pediatrician.",
+        "\ud83e\ude7a Some symptoms may seem minor but could need attention. It\u2019s always safer to check with a healthcare provider.",
+        "\ud83d\udc76 Children can\u2019t always express what\u2019s wrong. If you\u2019re unsure, trust your instincts and reach out to a doctor.",
+        "\ud83d\udca1 Want to describe the symptoms? I\u2019ll help you organize them before you speak to a medical expert."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "mental health in children",
+      "similar": [
+        "child seems sad",
+        "my kid is anxious",
+        "child mental health",
+        "emotional issues in child",
+        "child not talking"
+      ],
+      "answers": [
+        "\ud83e\udde0 Children\u2019s emotional health matters deeply. If your child seems withdrawn, anxious, or unusually sad, consider speaking to a child psychologist or counselor.",
+        "\ud83d\udcac You\u2019re doing the right thing by noticing. Early support can make a big difference\u2014reach out to a professional if you\u2019re concerned.",
+        "\ud83e\udd17 I\u2019m here to listen, but a licensed expert can guide you and your child with care and understanding."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "Exams i didn't do well",
+      "similar": [
+        "Its done thinking about past which can't be changed! :< don't worry u will get good marks",
+        "You can't change the past but you can change your future!! hmm that's possible think :)",
+        "Now cheer up buddy",
+        "I can't see you like this",
+        "take it as a challenge do well in your upcoming exams :)"
+      ],
+      "answers": [
+        "Happens!! Let it be do well in upcoming exams"
+      ],
+      "intents": [
+        "study"
+      ]
+    },
+    {
+      "question": "study booster",
+      "similar": [
+        "i need a boost",
+        "boost me up",
+        "give me a boost",
+        "study mode on",
+        "activate booster",
+        "i feel low",
+        "i need help"
+      ],
+      "answers": [
+        "\ud83d\udcaa You\u2019re unstoppable! Let\u2019s crush today\u2019s goals together!",
+        "\ud83d\ude80 Every step you take is progress. Keep going\u2014you\u2019re doing amazing!",
+        "\u2728 You\u2019ve got the spark. Let\u2019s light up your learning journey!",
+        "\ud83e\udde0 You\u2019re not alone\u2014I believe in you, and I\u2019m right here cheering you on!"
+      ]
+    },
+    {
+      "question": "How do you multiply two matrices?",
+      "similar": [
+        "Explain matrix multiplication",
+        "What is the rule for multiplying matrices?",
+        "Matrix multiplication steps",
+        "How to find C = A \u00d7 B?"
+      ],
+      "answers": [
+        "To multiply two matrices A (m\u00d7n) and B (n\u00d7p), the result is a matrix C (m\u00d7p). Each element c\u1d62\u2c7c is the dot product of the i-th row of A and the j-th column of B.",
+        "Multiply rows of the first matrix by columns of the second and sum the products to get each element."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "What is Bayes' Theorem?",
+      "similar": [
+        "Explain Bayes theorem",
+        "Bayes formula",
+        "How to update probability with Bayes?",
+        "Bayesian probability rule"
+      ],
+      "answers": [
+        "Bayes' Theorem: P(A|B) = [P(B|A) \u00d7 P(A)] / P(B). It helps update probabilities based on new evidence.",
+        "It\u2019s a way to revise existing probability estimates when new data is available."
+      ],
+      "intents": [
+        "study"
+      ]
+    },
+    {
+      "question": "What is integration by parts?",
+      "similar": [
+        "Explain integration by parts",
+        "Integration by parts formula",
+        "How to use LIATE rule?",
+        "u dv integration method"
+      ],
+      "answers": [
+        "Formula: \u222bu dv = uv - \u222bv du. Choose u and dv wisely using the LIATE rule (Logarithmic, Inverse trig, Algebraic, Trig, Exponential).",
+        "Pick u as the function that becomes simpler when differentiated, and dv as the rest."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "How to solve a first order linear differential equation?",
+      "similar": [
+        "First order linear DE solution",
+        "Integrating factor method",
+        "dy/dx + P(x)y = Q(x) solution",
+        "Solve linear DE"
+      ],
+      "answers": [
+        "General form: dy/dx + P(x)y = Q(x). Use integrating factor \u03bc(x) = e^(\u222bP(x)dx) to solve.",
+        "Multiply through by the integrating factor, then integrate both sides."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "polar form of a complex number",
+      "similar": [
+        "Complex number polar form",
+        "Write z in polar form",
+        "r cis theta form",
+        "Convert complex to polar"
+      ],
+      "answers": [
+        "Any complex number z = x + iy can be written as r(cos\u03b8 + i sin\u03b8), where r = |z| and \u03b8 = arg(z).",
+        "Polar form expresses a complex number in terms of magnitude and angle."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "What is the dot product of two vectors?",
+      "similar": [
+        "Dot product formula",
+        "Vector scalar product",
+        "A \u00b7 B formula",
+        "Projection using dot product"
+      ],
+      "answers": [
+        "Dot product of vectors A and B: A \u00b7 B = |A||B|cos\u03b8. It gives a scalar value representing projection.",
+        "Multiply corresponding components and sum them to get the dot product."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "What is the Euclidean Algorithm?",
+      "similar": [
+        "Find GCD using Euclidean algorithm",
+        "Euclid's method for GCD",
+        "GCD calculation steps",
+        "Greatest common divisor method"
+      ],
+      "answers": [
+        "To find GCD of a and b: repeatedly apply a = bq + r until r = 0. Last non-zero remainder is the GCD.",
+        "It\u2019s an efficient way to compute the greatest common divisor using repeated division."
+      ],
+      "intents": [
+        "study"
+      ]
+    },
+    {
+      "question": "How to prove by mathematical induction?",
+      "similar": [
+        "Mathematical induction steps",
+        "Induction proof method",
+        "Prove statement for all n",
+        "Base case and inductive step"
+      ],
+      "answers": [
+        "Step 1: Prove base case. Step 2: Assume true for n = k. Step 3: Prove for n = k+1. If both hold, the statement is true for all n.",
+        "Show it works for the first case, then prove that if it works for one case, it works for the next."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "What is the graphical method in linear programming?",
+      "similar": [
+        "Graphical method LP",
+        "Solve LP using graph",
+        "Feasible region method",
+        "Corner point method"
+      ],
+      "answers": [
+        "Plot constraints as inequalities, identify feasible region, and evaluate objective function at corner points.",
+        "Graph the constraints, shade the feasible region, and check vertices for the optimal solution."
+      ],
+      "intents": [
+        "math"
+      ]
+    },
+    {
+      "question": "my child seems sad",
+      "similar": [
+        "burn those moments into ashes cheer buddy you are a strong person!!",
+        "Thinking about the past hmm.. not good for your health",
+        "Thinking about those worst moments will disturb you more come on we will speak something new!!."
+      ],
+      "answers": [
+        "cheer up what's the tragedy that made you sad today!!"
+      ],
+      "intents": [
+        "motivational"
+      ]
+    },
+    {
+      "question": "that's great!",
+      "similar": [
+        "that's nice",
+        "awesome",
+        "that's pretty good",
+        "fantastic",
+        "Woww that's great you learned something new!!",
+        "Great!! keep learning new things",
+        "Amazing!! keep going on",
+        "Superb!! keep rocking",
+        "Incredible!! keep it up"
+      ],
+      "answers": [
+        "All that you taught, made me genious as you are!!",
+        "Sharing is caring sharing your knowledge training me like a model!!",
+        "Learning new things is the most beautiful part and you are teaching me is the most beautiful thing in the universe",
+        "Keep sharing me knowledge I will be always gratefull to you companion."
+      ],
+      "intents": [
+        "chat"
+      ]
+    },
+    {
+      "question": "science is difficult",
+      "similar": [
+        "Science is meant for discovery,invention and proofs for the existing work",
+        "Science is the knowledge of the things how it actually works",
+        "there are many fields in science!! Come on let's find out in which you are interested!!"
+      ],
+      "answers": [
+        "I don't think so!! Science is full of creations, logics and proofs"
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is the meaning of motivation?",
+      "similar": [
+        "motivating to do something he wants to do",
+        "encouraging to do something which the oerson is willing to do but not taking the opportunity or the person is shy"
+      ],
+      "answers": [
+        "Encouranging a person to do the specific thing in the field where he feels low"
+      ],
+      "intents": [
+        "motivation"
+      ]
+    },
+    {
+      "question": "i want to know about science",
+      "similar": [
+        "Science is all about finding answrs for the question how and  why!!",
+        "Science is all about observations and experiments",
+        "Science is the tool to find the truth and proofs for the truth by experimenting it.",
+        "Science helps to learn understand from stars to cells..!!"
+      ],
+      "answers": [
+        "Science is the study of how the things work in the world."
+      ],
+      "intents": [
+        "study"
+      ]
+    },
+    {
+      "question": "hey",
+      "similar": ["Hello", "Hi", "Hey", "Hi there", "Hello there", "Hello companion", "Hi companion"],
+      "answers": ["helloo companion!!", "Hi crime patrolling!!", "Hey companion!!", "Hi there companion!!", "Hello there companion!!", "Hello companion!!", "Hi companion!!"]
+    },
+    {
+      "question": "okay bye",
+      "similar": [
+        "Bye!!",
+        "Tata Bye",
+        "See you soon take care",
+        "Byee take care!!",
+        "I will be waiting till then!!",
+        "Hope will meet soon!! take care"
+      ],
+      "answers": [
+        "Bye!! I will meet you then"
+      ],
+      "intents": [
+        "chat"
+      ]
+    },
+    {
+      "question": "hmmm",
+      "similar": [
+        "Ahh.. ok let's dive deeper into your interested topic share one of those..!!",
+        "Hmm tell me how can I help you out further",
+        "Ahh..!! What shall I assist you ahead?!"
+      ],
+      "answers": [
+        "Hmmm... Tell me what is in your mind?!"
+      ],
+      "intents": [
+        "chat"
+      ]
+    }
+    ,
+    {
+      "question": "my child has fever",
+      "similar": [
+        "baby fever",
+        "toddler has high temperature",
+        "child temperature 101",
+        "kid running a fever",
+        "fever not going down"
+      ],
+      "answers": [
+        "A mild fever can be the body fighting an infection. Keep your child hydrated, dress them lightly, and monitor their temperature.",
+        "If fever lasts more than 24 hours (under 2 years) or 48 hours (over 2 years), or is very high, please contact a pediatrician.",
+        "Seek urgent care if your child is lethargic, has trouble breathing, a stiff neck, seizures, or is under 3 months with any fever."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child has cough and cold",
+      "similar": [
+        "persistent cough",
+        "child cold",
+        "kid coughing at night",
+        "wet cough in child",
+        "dry cough in child"
+      ],
+      "answers": [
+        "Give warm fluids and ensure rest. A humidifier may ease breathing. Honey can help for children over 1 year (avoid in infants).",
+        "If cough lasts more than 2 weeks, has wheezing, fast breathing, or high fever, please see a pediatrician.",
+        "If your child is struggling to breathe, has bluish lips, or chest pulling in, seek urgent medical attention."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child is vomiting",
+      "similar": [
+        "kid throwing up",
+        "child nausea",
+        "vomiting and stomach pain",
+        "toddler keeps vomiting"
+      ],
+      "answers": [
+        "Offer small sips of oral rehydration solution frequently to prevent dehydration. Avoid solid foods until vomiting settles.",
+        "See a doctor if vomiting persists > 8–12 hours, there is blood or green bile, severe stomach pain, or signs of dehydration.",
+        "Go to urgent care if your child is very drowsy, has a stiff neck, severe headache, or cannot keep fluids down at all."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child has diarrhea",
+      "similar": [
+        "loose motions in child",
+        "frequent watery stools",
+        "stomach bug child",
+        "gastro in kid"
+      ],
+      "answers": [
+        "Focus on hydration with oral rehydration solution. Continue regular feeding if possible. Avoid sugary drinks.",
+        "See a doctor if diarrhea lasts more than 2 days, there is blood/mucus in stool, fever, or signs of dehydration.",
+        "Urgent care is needed if your child is very sleepy, has sunken eyes, no tears, or pees very little."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "signs of dehydration in child",
+      "similar": [
+        "is my child dehydrated",
+        "dehydration symptoms toddler",
+        "not drinking water child",
+        "dry mouth child"
+      ],
+      "answers": [
+        "Watch for dry mouth and lips, fewer wet diapers/urination, sunken eyes, no tears when crying, and unusual sleepiness or irritability.",
+        "Offer oral rehydration solution in small, frequent sips. If your child refuses to drink or worsens, see a doctor.",
+        "Seek urgent care if dehydration signs are severe or your child can’t keep fluids down."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child has a rash",
+      "similar": [
+        "child skin rash",
+        "red spots on child",
+        "itchy rash kid",
+        "sudden rash in toddler"
+      ],
+      "answers": [
+        "Many rashes are mild and viral. Track fever and other symptoms, and avoid scratching. Keep skin cool and clean.",
+        "See a doctor if the rash is painful, rapidly spreading, with high fever, or your child seems unwell.",
+        "Seek emergency care if the rash looks like bruises or purple spots that don’t fade under pressure, or if there is difficulty breathing."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child has ear pain",
+      "similar": [
+        "earache child",
+        "tugging ear toddler",
+        "possible ear infection",
+        "child ear hurts"
+      ],
+      "answers": [
+        "Ear pain can follow a cold. Use warm compresses and age-appropriate pain relief if advised by your doctor.",
+        "See a pediatrician if pain is severe, lasts more than a day, there is fever, fluid from the ear, or hearing issues.",
+        "Keep the ear dry and avoid inserting anything into the ear canal."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "sore throat in child",
+      "similar": [
+        "child has throat pain",
+        "pain while swallowing kid",
+        "strep signs child",
+        "red throat child"
+      ],
+      "answers": [
+        "Offer warm fluids and rest. Throat pain often follows viral colds and may settle in a few days.",
+        "See a doctor if there is high fever, swollen glands, white patches in the throat, or symptoms persist.",
+        "Seek urgent care if your child drools, has difficulty breathing, or cannot swallow fluids."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "abdominal pain in child",
+      "similar": [
+        "stomach ache child",
+        "tummy pain kid",
+        "stomach cramps toddler",
+        "severe belly pain child"
+      ],
+      "answers": [
+        "Mild tummy aches are common. Encourage rest, fluids, and track bowel movements and fever.",
+        "See a doctor if pain is severe, localized (especially right lower side), with vomiting, fever, or pain that wakes the child.",
+        "Urgent attention is needed for a hard, bloated belly, persistent vomiting, blood in stool, or the child is very unwell."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child is anxious",
+      "similar": [
+        "child anxiety signs",
+        "kid worrying a lot",
+        "panic feelings child",
+        "nervous child"
+      ],
+      "answers": [
+        "Acknowledge their feelings and create a calm routine. Slow breaths: inhale 4, hold 4, exhale 6—practice together.",
+        "Offer reassurance and predictability. If anxiety interferes with daily life, consider counseling with a child therapist.",
+        "You’re not alone—early support helps. If panic symptoms occur frequently, seek professional guidance."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "panic attack help for child",
+      "similar": [
+        "child panic attack",
+        "kid hyperventilating",
+        "child sudden fear episode",
+        "help calm panic child"
+      ],
+      "answers": [
+        "Stay close, speak softly, and guide slow breathing: in through the nose, long out-breaths. Reduce stimulation if possible.",
+        "Remind them the feeling will pass and they are safe. Afterward, discuss coping strategies and triggers with a professional.",
+        "If breathing is very difficult, fainting occurs, or chest pain is severe, seek urgent medical care."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child is being bullied",
+      "similar": [
+        "bullying at school",
+        "classmates are mean",
+        "child afraid of school",
+        "kid bullied"
+      ],
+      "answers": [
+        "Listen without judgment, validate their feelings, and document incidents. Your child’s safety and confidence come first.",
+        "Inform the school and work with trusted staff to create a plan. Teach assertive responses and safe help-seeking.",
+        "If there are injuries, severe distress, or threats, seek professional and school support urgently."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child can’t sleep well",
+      "similar": [
+        "sleep problems child",
+        "insomnia kid",
+        "nightmares toddler",
+        "child wakes at night"
+      ],
+      "answers": [
+        "Keep a consistent bedtime routine, reduce screens 1–2 hours before bed, and keep the room dark and cool.",
+        "If sleep issues persist, snoring is loud, or there are breathing pauses, consult a pediatrician.",
+        "Gentle wind-down activities like reading and calm music can help signal sleep time."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "screen time concerns",
+      "similar": [
+        "too much mobile child",
+        "kids on tablet all day",
+        "reduce screen time",
+        "screen addiction child"
+      ],
+      "answers": [
+        "Set age-appropriate limits and create device-free routines (meals, bedtime). Model healthy screen habits as a family.",
+        "Encourage active play, outdoor time, and hobbies to replace mindless scrolling.",
+        "If screen use affects mood, sleep, or school, consider a gradual reduction plan and talk to a professional if needed."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "my child gets angry easily",
+      "similar": [
+        "child anger outbursts",
+        "tantrums older child",
+        "aggressive behavior kid",
+        "emotional meltdowns child"
+      ],
+      "answers": [
+        "Name the feeling and set clear, calm limits. Teach coping skills like breathing, counting, or a quiet corner routine.",
+        "Track triggers (hunger, fatigue, transitions) and use predictable schedules. Praise calm attempts.",
+        "If aggression is frequent or unsafe, seek guidance from a child psychologist or pediatrician."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "worried about self-harm or safety",
+      "similar": [
+        "child talks about hurting themselves",
+        "suicidal thoughts child",
+        "self harm warning signs",
+        "immediate mental health help child"
+      ],
+      "answers": [
+        "Take any mention of self-harm seriously. Stay with your child, listen without judgment, and remove unsafe items.",
+        "Contact a local crisis line or mental health professional right away for guidance specific to your area.",
+        "If your child is in immediate danger, please seek emergency services immediately."
+      ],
+      "intents": [
+        "health"
+      ]
+    },
+    {
+      "question": "what is science",
+      "similar": [
+        "define science",
+        "meaning of science",
+        "explain science",
+        "what does science mean"
+      ],
+      "answers": [
+        "Science is a way of understanding the world by asking questions, observing, and testing ideas through experiments.",
+        "It uses evidence to discover how things work—from tiny atoms to stars in space—and helps us make better decisions."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what are the states of matter",
+      "similar": [
+        "states of matter",
+        "solid liquid gas",
+        "plasma state",
+        "matter states explanation"
+      ],
+      "answers": [
+        "Common states of matter are solid, liquid, gas, and plasma. Solids keep shape, liquids take container shape, gases spread out, and plasma is ionized gas found in stars.",
+        "Heating or cooling can change states—for example, ice (solid) melts to water (liquid) and boils to steam (gas)."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is photosynthesis",
+      "similar": [
+        "define photosynthesis",
+        "how plants make food",
+        "photosynthesis process",
+        "chlorophyll function"
+      ],
+      "answers": [
+        "Photosynthesis is the process by which plants use sunlight, carbon dioxide, and water to make glucose and oxygen. It occurs mainly in leaves using chlorophyll.",
+        "Basic equation: carbon dioxide + water + light energy -> glucose + oxygen."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is gravity",
+      "similar": [
+        "explain gravity",
+        "why things fall",
+        "gravitational force",
+        "earth gravity"
+      ],
+      "answers": [
+        "Gravity is the force of attraction between masses. It pulls objects toward each other, like keeping us on Earth.",
+        "The more massive and the closer objects are, the stronger the gravitational pull."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "how do electric circuits work",
+      "similar": [
+        "explain electric circuit",
+        "series and parallel circuits",
+        "current and voltage basics",
+        "battery wire bulb circuit"
+      ],
+      "answers": [
+        "An electric circuit is a closed path that lets current flow from a power source through components and back. Voltage pushes charges; resistance opposes flow.",
+        "In series circuits current is the same through all components; in parallel, voltage is the same across branches."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is the water cycle",
+      "similar": [
+        "explain water cycle",
+        "evaporation condensation precipitation",
+        "hydrologic cycle steps",
+        "how rain forms"
+      ],
+      "answers": [
+        "The water cycle moves water through evaporation, condensation, precipitation, and collection. Sunlight drives evaporation; clouds form by condensation; rain or snow falls as precipitation.",
+        "This cycle cleans and redistributes Earth’s water constantly."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "tell me about the solar system",
+      "similar": [
+        "planets in order",
+        "facts about planets",
+        "what is the sun",
+        "solar system basics"
+      ],
+      "answers": [
+        "Our solar system has the Sun, eight planets, dwarf planets, moons, asteroids, and comets. Planets in order: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+        "The Sun is a star that provides light and energy, holding the system together with gravity."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is an ecosystem",
+      "similar": [
+        "ecosystem definition",
+        "food chain and web",
+        "producers consumers decomposers",
+        "energy flow in ecosystem"
+      ],
+      "answers": [
+        "An ecosystem is a community of living things interacting with nonliving things like air, water, and soil.",
+        "Energy flows from producers (plants) to consumers (animals) to decomposers, forming food chains and food webs."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what are atoms and molecules",
+      "similar": [
+        "define atom",
+        "define molecule",
+        "particles of matter",
+        "atoms molecules difference"
+      ],
+      "answers": [
+        "Atoms are the basic building blocks of matter, made of protons, neutrons, and electrons. Molecules form when two or more atoms bond together.",
+        "Examples: O2 is an oxygen molecule, H2O is a water molecule made of hydrogen and oxygen atoms."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "explain forces and motion",
+      "similar": [
+        "newton laws of motion",
+        "what is a force",
+        "speed velocity acceleration",
+        "balanced and unbalanced forces"
+      ],
+      "answers": [
+        "A force is a push or pull that can change an object’s motion. Balanced forces cancel; unbalanced forces cause acceleration.",
+        "Newton’s laws describe inertia, F=ma, and action-reaction pairs."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is magnetism",
+      "similar": [
+        "magnets and poles",
+        "magnetic field basics",
+        "attract and repel",
+        "electromagnet concept"
+      ],
+      "answers": [
+        "Magnetism is a force from moving electric charges. Magnets have north and south poles; like poles repel and unlike poles attract.",
+        "Electromagnets are made by running current through coils—useful in motors and speakers."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "what is the scientific method",
+      "similar": [
+        "steps of scientific method",
+        "hypothesis and experiment",
+        "observe test conclude",
+        "how scientists investigate"
+      ],
+      "answers": [
+        "Typical steps: ask a question, research, form a hypothesis, test with an experiment, analyze data, draw conclusions, and share results.",
+        "Good experiments change only one variable at a time and use controls when possible."
+      ],
+      "intents": [
+        "science"
+      ]
+    },
+    {
+      "question": "basics of the human body",
+      "similar": [
+        "major human organs",
+        "human body systems",
+        "what do heart lungs do",
+        "digestive respiratory circulatory"
+      ],
+      "answers": [
+        "Body systems include circulatory, respiratory, digestive, nervous, and more. The heart pumps blood, lungs exchange oxygen and carbon dioxide, and the stomach/intestines digest food.",
+        "Systems work together to keep the body in balance (homeostasis)."
+      ],
+      "intents": [
+        "science"
+      ]
+    }
+  ]
+}
