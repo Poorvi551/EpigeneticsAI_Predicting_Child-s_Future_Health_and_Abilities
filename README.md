@@ -43,6 +43,14 @@ Open browser: `http://localhost:8000`
 - Bootstrap
 - JavaScript
 
+## Deployment Tool used 
+
+- Hugging Face
+
+## Project Link
+
+Link - https://huggingface.co/spaces/Poorvi551/Epigenetics-AI-predicting-Childs-Health-and-Abilities
+
 ## Author
 
 S B Poorvi
