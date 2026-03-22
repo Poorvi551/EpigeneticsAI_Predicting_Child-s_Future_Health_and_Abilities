@@ -14,7 +14,7 @@ An AI-powered chatbot companion for children with emotion detection and text-to-
 ## Installation
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone <(https://github.com/Poorvi551/EpigeneticsAI_Predicting_Child-s_Future_Health_and_Abilities.git)>
 cd "MJ project"
 
 # Create virtual environment
